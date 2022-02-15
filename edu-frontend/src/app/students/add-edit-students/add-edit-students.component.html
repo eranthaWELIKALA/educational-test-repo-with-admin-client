@@ -1,0 +1,42 @@
+<!-- Alert -->
+<div *ngIf="showAlert" class="alert alert-dismissible fade show"
+    [ngClass]="{'alert-success': isSuccessfullAlert, 'alert-danger': !isSuccessfullAlert}" role="alert">
+    {{ alertMessage }}
+    <button type="button" class="close" (click)="showAlert=false">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="container my-auto">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+              <li class="breadcrumb-item"><a routerLink="/students">Students</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{studentUpdateForm.value.firstName}} {{studentUpdateForm.value.lastName}}</li>
+            </ol>
+          </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <form method="post" [formGroup]="studentUpdateForm" (ngSubmit)="onStudentFormSubmit()">
+                <div class="form-group">
+                    <label for="firstname">FirstName</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Enter FirstName"
+                        formControlName="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">LastName</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Enter LastName"
+                        formControlName="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="Enter Email" formControlName="email">
+                </div>
+                <button type="submit" class="float-right btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

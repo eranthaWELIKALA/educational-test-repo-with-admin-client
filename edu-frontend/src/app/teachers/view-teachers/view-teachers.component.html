@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Teachers</li>
+            </ol>
+          </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-5 card m-1" *ngFor="let teacher of teachers">
+            <div class="card-body">
+                <h5 class="card-title">{{ teacher.firstName }} {{ teacher.lastName }}</h5>
+                <div class="card-text">
+                    <div class="row">
+                        Email: {{ teacher.email }}
+                    </div>
+                    <div class="row">
+                        Email Verified: {{ teacher.emailVerified }}
+                    </div>
+                    <div class="row">
+                        <a class="btn btn-primary" [routerLink]="['/teachers', teacher.id]">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

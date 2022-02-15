@@ -1,0 +1,140 @@
+<!-- Alert -->
+<div *ngIf="showAlert" class="alert alert-dismissible fade show"
+    [ngClass]="{'alert-success': isSuccessfullAlert, 'alert-danger': !isSuccessfullAlert}" role="alert">
+    {{ alertMessage }}
+    <button type="button" class="close" (click)="showAlert=false">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Card Deck -->
+<div class="card-deck mt-3 mx-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Teachers</h5>
+            <p class="card-text">A teacher, also called a schoolteacher or formally an educator, is a person who helps
+                students to acquire knowledge, competence or virtue. Informally the role of teacher may be taken on by
+                anyone.</p>
+            <a href="#" class="btn btn-primary mr-1" data-toggle="modal" data-target="#createTeacherModal">Create
+                Teacher</a>
+            <a routerLink="teachers" class="btn btn-primary">View Teachers</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Students</h5>
+            <p class="card-text">A student is primarily a person enrolled in a school or other educational institution
+                and who is under learning with goals of acquiring knowledge, developing professions and achieving
+                employment in a desired field.</p>
+            <a href="#" class="btn btn-primary mr-1" data-toggle="modal" data-target="#createStudentModal">Create
+                Student</a>
+            <a routerLink="students" class="btn btn-primary">View Students</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This card has even longer content than the first to show that equal height action.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createStudentModal" tabindex="-1" role="dialog" aria-labelledby="createStudentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createStudentModalLabel">Create Student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #createStudentModalCloseBtn>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container my-auto">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <form method="post" [formGroup]="studentCreationForm" (ngSubmit)="onStudentFormSubmit()">
+                                <div class="form-group">
+                                    <label for="firstname">FirstName</label>
+                                    <input type="text" class="form-control" id="firstname" placeholder="Enter FirstName"
+                                        formControlName="firstName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">LastName</label>
+                                    <input type="text" class="form-control" id="lastname" placeholder="Enter LastName"
+                                        formControlName="lastName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                        placeholder="Enter Email" formControlName="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="regNumber">Reg Number</label>
+                                    <input type="number" class="form-control" id="regNumber"
+                                        placeholder="Enter Registration Number" formControlName="regNumber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="grade">Grade</label>
+                                    <input type="text" class="form-control" id="grade" placeholder="Enter Grade"
+                                        formControlName="grade">
+                                </div>
+                                <button type="submit" class="float-right btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createTeacherModal" tabindex="-1" role="dialog" aria-labelledby="createTeacherModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createTeacherModalLabel">Create Teacher</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #createTeacherModalCloseBtn>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container my-auto">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <form method="post" [formGroup]="teacherCreationForm" (ngSubmit)="onTeacherFormSubmit()">
+                                <div class="form-group">
+                                    <label for="firstname">FirstName</label>
+                                    <input type="text" class="form-control" id="firstname" placeholder="Enter FirstName"
+                                        formControlName="firstName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">LastName</label>
+                                    <input type="text" class="form-control" id="lastname" placeholder="Enter LastName"
+                                        formControlName="lastName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                        placeholder="Enter Email" formControlName="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="regNumber">Reg Number</label>
+                                    <input type="number" class="form-control" id="regNumber"
+                                        placeholder="Enter Registration Number" formControlName="regNumber">
+                                </div>
+                                <button type="submit" class="float-right btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
